@@ -1,0 +1,84 @@
+* Kotlin 기본 문법
+
+
+
+1. 변수 선언
+
+val : 불변 상수 (=final:java, =const:c/c++)
+var : 가변 상수 (일반적인 변수)
+var x = 5
+var x: Int = 1
+
+
+2. 함수 선언
+
+fun 함수명(인자:타입, 인자:타입) : 함수타입 {
+   return 반환값
+}
+
+3. 함수 + 조건문
+
+fun max(a: Int, b:Int) = if (a>b) a else b
+
+
+4. null 변수 
+
+- 변수는 null을 가질 수 없음
+var b: Int? = null
+- 위처럼 ?가 있다면 null 명시 가능
+
+
+5. Any 타입
+
+fun getStringLength(obj: Any) : Int? { 					// 해당 함수는 Int / null 모두 가능
+   if (obj is String)                                	// obj는 String으로 자동 캐스팅
+       return obj.length                         		// int 반환
+   return null                                       	// String이 아니라면 null 반환
+}
+
+
+6. loop
+
+ArrayList<String> arrayList = new ArrayList<>();  		// 자바
+val arrayList = ArrayList<String>()                     // 코틀린
+for (s in arrayList)
+    Log.d("TAG", "string : " + s)
+
+
+7. when = Any + Case 문(반복 if문)
+
+fun cases(obj: Any) {
+	when (obj) {
+		1 -> println("One")
+		"Hello" -> println("Greeting")
+		is Long -> println("Long")
+		!is String -> println("Not a string")
+		else -> println("Unknown")
+	}
+}
+
+
+8. ranges
+
+//자바
+for (int i=1; i<=5; i++)
+	syso.println(i);
+
+//코틀린
+for (x in 1..5) {
+	println(x)
+}
+	
+// ranges + if
+val array = arrayList<String>
+array.add("aaa")
+array.add("bbb")
+
+val x = 3
+
+if (x !in 0..array.size-1)
+	println("Out: array 사이즈는 ${array.size} 요청한 x = ${x}")
+// 출력 ; Out: array 사이즈는 2 요청한 x = 3
+	
+
+	
